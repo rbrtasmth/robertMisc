@@ -1,0 +1,18 @@
+Package: robertMisc
+Title: Robert A Smith's commonly used functions.
+Description: This is a set of functions I commonly use.
+Version: 1.0
+Authors@R: 'Robert A Smith <robert.smith@capella.edu> [aut,cre]'
+Depends:
+    R (>= 3.0.1)
+License: GPL-3
+LazyData: true
+Collate:
+    'bcp_plot.r'
+    'binning.r'
+    'dummies.r'
+    'invlogit.r'
+    'sign_log.r'
+    'tabling.r'
+    'coef_order.r'
+    'require_packages.r'
