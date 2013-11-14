@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 .R*
 *.so
 *.o
 *.dll
 *.Rproj
 .Rproj.user
-=======
-.Rproj.user
-.Rhistory
-.RData
-robertMisc.Rproj
->>>>>>> d788e07f03a39533be83838739bc263fd20d2761
