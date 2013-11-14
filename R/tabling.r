@@ -119,10 +119,10 @@ as_pct <- function(an_array){
 #'  
 #'  This wrapper function also includes a few more sanitization functions.
 #'  
-#'  @param xtbl a table to put in a LaTeX format 
+#'  @param tbl a table to put in a LaTeX format 
 #'  @param digits Number of digits, passed to  \code{\link{xtable}}'s \code{digits}
 #'  @param caption A caption, passed to  \code{\link{xtable}}'s \code{caption}
-#'  @param include_rownames Include row names? Defaults to \code{FALSE}.
+#'  @param include_rownames Include row names?
 #'  @param align Column alignment, passed to  \code{\link{xtable}}'s \code{align}
 #'  @param ... Additional arguments passed to \code{\link{print.xtable}}
 #'  @export
@@ -133,15 +133,18 @@ as_pct <- function(an_array){
 #'  xtable_wrap(data.frame(x = 1.5), digits = 0)
 #'  xtable_wrap(data.frame(x = 1), caption = "Hello x")
 #'  xtable_wrap(data.frame(x = "a", y = 0), align = c("NULL", "l", "c"))
-xtable_wrap <- function(xtbl, digits = 2, caption = NULL, include_rownames = FALSE, align = NULL, ...){
-    print(xtable(xtbl, type = "latex", digits = digits, caption = caption, align = align),
+xtable_wrap <- function(tbl, digits = 2, caption = NULL, include_rownames = FALSE, align = NULL, ...){
+    if (is.null(align)) align <- c("l", "l", rep("r", ncol(tbl)-1))
+    print(xtable(tbl, type = "latex", digits = digits, caption = caption, align = align),
           include.rownames = include_rownames,
           table.placement=getOption("xtable.table.placement", "H"),
-          sanitize.text.function=function(x){
+          sanitize.text.function=function(x) {
               x2 <- gsub("[", "{[}", x, fixed = TRUE)
               x3 <- gsub("_", " ", x2, fixed = TRUE)
               x4 <- gsub("%", "\\%", x3, fixed = TRUE)
-              return(x4)},
+              x5 <- gsub("$", "\\$", x4, fixed = TRUE)
+              return(x5)
+          },
           ...
     )
 }

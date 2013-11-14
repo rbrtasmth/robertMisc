@@ -6,8 +6,8 @@
 #'  @export
 #'  @import glmnet
 #'  @import Matrix
+#'  @import stringr
 #'  @importFrom plyr ddply
-#'  @importFrom stringr str_replace_all
 #'  @importFrom reshape2 melt
 #'  @examples
 #'  require(glmnet)

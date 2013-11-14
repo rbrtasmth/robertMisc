@@ -2,11 +2,11 @@
 \alias{xtable_wrap}
 \title{Wrapper function to take just a simple data frame and put it in latex format with my preferred defaults.}
 \usage{
-  xtable_wrap(xtbl, digits = 2, caption = NULL,
+  xtable_wrap(tbl, digits = 2, caption = NULL,
     include_rownames = FALSE, align = NULL, ...)
 }
 \arguments{
-  \item{xtbl}{a table to put in a LaTeX format}
+  \item{tbl}{a table to put in a LaTeX format}
 
   \item{digits}{Number of digits, passed to
   \code{\link{xtable}}'s \code{digits}}
@@ -14,8 +14,7 @@
   \item{caption}{A caption, passed to
   \code{\link{xtable}}'s \code{caption}}
 
-  \item{include_rownames}{Include row names? Defaults to
-  \code{FALSE}.}
+  \item{include_rownames}{Include row names?}
 
   \item{align}{Column alignment, passed to
   \code{\link{xtable}}'s \code{align}}
